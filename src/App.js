@@ -3,7 +3,7 @@ import "./App.css";
 import SearchIcon from "./search.svg";
 import MovieCard from "./MovieCard";
 
-const API_URL = " http://www.omdbapi.com/?i=tt3896198&apikey=bac562e8";
+const API_URL = "https://www.omdbapi.com/?i=tt3896198&apikey=bac562e8";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -16,7 +16,7 @@ function App() {
   };
 
   useEffect(() => {
-    loadMovies("Spiderman");
+    loadMovies("");
   }, []);
 
   return (
@@ -33,8 +33,8 @@ function App() {
 
       {movies?.length > 0 ? (
         <div className="container">
-          {movies.map((movie) => (
-            <MovieCard movie={movie} />
+          {movies.map((movie, index) => (
+            <MovieCard key={index} movie={movie} />
           ))}
         </div>
       ) : (
